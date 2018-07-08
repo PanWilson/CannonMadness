@@ -8,10 +8,14 @@ public class ProjectileComponent : MonoBehaviour {
 
     Rigidbody rb;
 
-	// Use this for initialization
-	void Start () {
-
+    private void Awake()
+    {
         rb = GetComponent<Rigidbody>();
+    }
+
+    // Use this for initialization
+    void Start () {
+
 
 	}
 	
@@ -22,8 +26,7 @@ public class ProjectileComponent : MonoBehaviour {
 
     public void LaunchProjectile(Vector3 direction, float force)
     {
-        if (rb) {
+        if(rb)
             rb.AddForce(direction * force,ForceMode);
-        }
     }
 }
