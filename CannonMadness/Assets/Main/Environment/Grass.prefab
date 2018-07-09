@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33906276450826928}
   - component: {fileID: 23503137409543176}
   m_Layer: 0
-  m_Name: Grass_Patch_Square_01 1
+  m_Name: Grass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

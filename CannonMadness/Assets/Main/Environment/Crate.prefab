@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 23611238699710748}
   - component: {fileID: 65596844086325782}
   m_Layer: 0
-  m_Name: Crate_Sealed_01 1
+  m_Name: Crate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
