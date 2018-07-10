@@ -11,8 +11,15 @@ public class CameraFreeLook : MonoBehaviour {
     public float sprintMultiplier;
     private float currentSprintMultiplier;
 
+    [Range(0.01f, 1f)]
+    public float slowMultiplier;
+    private float currentSlowMultiplier;
+
+
+
     public Transform cameraObject;
 
+    public KeyCode slow = KeyCode.LeftControl;
     public KeyCode sprint = KeyCode.LeftShift;
     public KeyCode forward = KeyCode.W;
     public KeyCode back = KeyCode.S;
@@ -24,6 +31,7 @@ public class CameraFreeLook : MonoBehaviour {
     private void Awake()
     {
         currentSprintMultiplier = 1;
+        currentSlowMultiplier = 1;
     }
 
     private void Update()
@@ -34,6 +42,15 @@ public class CameraFreeLook : MonoBehaviour {
         } else if (Input.GetKeyUp(sprint))
         {
             currentSprintMultiplier = 1f;
+        }
+
+        if (Input.GetKeyDown(slow))
+        {
+            currentSlowMultiplier = slowMultiplier;
+        }
+        else if (Input.GetKeyUp(slow))
+        {
+            currentSlowMultiplier = 1f;
         }
 
         if (Input.GetKey(forward))
@@ -85,7 +102,7 @@ public class CameraFreeLook : MonoBehaviour {
 
     void Move(Vector3 direction)
     {
-        cameraObject.localPosition += direction * movementSpeed * Time.deltaTime * currentSprintMultiplier;
+        cameraObject.localPosition += direction * movementSpeed * Time.deltaTime * currentSprintMultiplier * currentSlowMultiplier;
         transform.position = cameraObject.position;
         cameraObject.localPosition = Vector3.zero;
     }
