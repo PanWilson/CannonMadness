@@ -15,8 +15,6 @@ public class CameraFreeLook : MonoBehaviour {
     public float slowMultiplier;
     private float currentSlowMultiplier;
 
-
-
     public Transform cameraObject;
 
     public KeyCode slow = KeyCode.LeftControl;
@@ -80,12 +78,8 @@ public class CameraFreeLook : MonoBehaviour {
             Move(Vector3.down);
         }
 
-        
-
         RotateAfterMouse();
     }
-
-    
 
     void RotateAfterMouse()
     {
@@ -96,8 +90,6 @@ public class CameraFreeLook : MonoBehaviour {
         float posY = transform.rotation.eulerAngles.y + x * Time.unscaledDeltaTime * mouseSpeed;
 
         transform.rotation = Quaternion.Euler(posX, posY, 0);
-        
-
     }
 
     void Move(Vector3 direction)
