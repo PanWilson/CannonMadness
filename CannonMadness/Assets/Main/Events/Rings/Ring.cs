@@ -4,10 +4,32 @@ public class Ring : MonoBehaviour {
 
     public bool active;
 
+    private RingsEvent ringsEvent;
+
+    private RingTrigger trigger;
+
+    private void Awake()
+    {
+        active = true;
+
+        ringsEvent = GetComponentInParent<RingsEvent>();
+        trigger = GetComponentInChildren<RingTrigger>();
+    }
+
     public void Deactivate()
     {
+        ringsEvent.ResetRings();
         active = false;
-        transform.GetChild(0).gameObject.SetActive(false);
+        trigger.gameObject.SetActive(false);
+        ringsEvent.CheckForCompletion();
     }
+
+    public void Activate()
+    {
+        active = true;
+        trigger.gameObject.SetActive(true);
+    }
+
+    
 
 }

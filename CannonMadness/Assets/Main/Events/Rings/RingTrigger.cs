@@ -6,8 +6,7 @@ public class RingTrigger : MonoBehaviour {
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Player passed the ring.");
-            transform.parent.GetComponent<Ring>().Deactivate();
+            GetComponentInParent<Ring>().Deactivate();
         }
     }
 

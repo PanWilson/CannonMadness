@@ -1,23 +1,69 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class RingsEvent : MonoBehaviour {
 
-    public List<Ring> rings;
+    private Ring[] rings;
+
+    private bool timerActive;
+    public float resetDelay;
+
+    private bool eventCompleted = false;
 
     private void Awake()
     {
+        timerActive = false;
         InitializeRings();
     }
 
     void InitializeRings()
     {
-        rings = new List<Ring>();
-        for (int i = 0; i < transform.childCount; i++)
+        rings = GetComponentsInChildren<Ring>();
+        if (eventCompleted)
         {
-            rings.Add(transform.GetChild(i).GetComponent<Ring>());
+            foreach (Ring ring in rings)
+            {
+                ring.Deactivate();
+            }
         }
+    }
+
+    public void ResetRings()
+    {
+        if (!timerActive)
+        {
+            StartCoroutine(RingsReseter(resetDelay));
+        }
+    }
+
+    IEnumerator RingsReseter(float seconds)
+    {
+        timerActive = true;
+        yield return new WaitForSeconds(seconds);
+        foreach (Ring ring in rings)
+        {
+            ring.Activate();
+        }
+        timerActive = false;
+    }
+
+    public void CheckForCompletion()
+    {
+        foreach (Ring ring in rings)
+        {
+            if (ring.active)
+            {
+                return;
+            }
+        }
+        Success();
+    }
+
+    public void Success()
+    {
+        StopAllCoroutines();
+        eventCompleted = true;
+        Debug.Log("You have passed all the rings.");
     }
 
 }

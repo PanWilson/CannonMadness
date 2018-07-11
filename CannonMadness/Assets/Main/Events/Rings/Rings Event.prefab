@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 33991169660554772}
   - component: {fileID: 23814030756384378}
   - component: {fileID: 64452858457964200}
+  - component: {fileID: 114683961961983886}
   m_Layer: 0
   m_Name: RingTrigger
   m_TagString: Untagged
@@ -55,6 +56,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4941804493117000}
+  - component: {fileID: 114782384510908360}
   m_Layer: 0
   m_Name: Rings Event
   m_TagString: Untagged
@@ -212,3 +214,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f098b4881ebd42145b5a19d845171390, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 0
+--- !u!114 &114683961961983886
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1752832637356314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad5168100aa6c72499c1e2d8378d54a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114782384510908360
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1839065904739592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8278cad87ed0f34bb37f0814ae299d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resetDelay: 5
