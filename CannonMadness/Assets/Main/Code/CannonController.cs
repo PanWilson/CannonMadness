@@ -32,6 +32,12 @@ public class CannonController : MonoBehaviour {
 
     float tapTimer;
 
+    [SerializeField] int trajectorySteps;
+
+    [SerializeField] float debugRadius;
+
+    float g;
+
 
     private void Awake()
     {
@@ -46,9 +52,10 @@ public class CannonController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (Input.GetKeyDown(KeyCode.Space)) Shoot();
         GetTouch();
         TapDetection();
-        if (Input.touchCount > 0 && GetTouchByID(controllingTouchId).phase != TouchPhase.Ended) {
+        if ((Input.GetKey(KeyCode.A)|| Input.GetKey(KeyCode.D)|| Input.GetKey(KeyCode.W)|| Input.GetKey(KeyCode.S))||(Input.touchCount > 0 && GetTouchByID(controllingTouchId).phase != TouchPhase.Ended)) {
             Rotate();
         }
 	}
@@ -57,17 +64,21 @@ public class CannonController : MonoBehaviour {
     {
         Touch controllingTouch = GetTouchByID(controllingTouchId);
         Vector2 FingerTilt = initPosition - controllingTouch.position;
+
         FingerTilt = Vector2.ClampMagnitude(FingerTilt,MaxFingerTilt);
 
-
         FingerTilt = FingerTilt.normalized * (FingerTilt.magnitude/MaxFingerTilt);
+
+        if (Input.GetKey(KeyCode.A)) FingerTilt = new Vector2(-1, FingerTilt.y);
+        if (Input.GetKey(KeyCode.D)) FingerTilt = new Vector2(1, FingerTilt.y);
+        if (Input.GetKey(KeyCode.W)) FingerTilt = new Vector2(FingerTilt.x, 1);
+        if (Input.GetKey(KeyCode.S)) FingerTilt = new Vector2(FingerTilt.x, -1);
 
         if (FingerTilt.magnitude > MarginTilt)
         {
 
             Vector3 rotationVector = new Vector3(0, FingerTilt.x * speed * Time.deltaTime, FingerTilt.y * speed * Time.deltaTime);
 
-            print(transform.eulerAngles.z);
             if (ToNegativeAngles(transform.eulerAngles.z) + (FingerTilt.x * speed * Time.deltaTime) > MaxLeanUp)
             {
                 rotationVector.z = MaxLeanUp - ToNegativeAngles(transform.eulerAngles.z);
@@ -158,4 +169,24 @@ public class CannonController : MonoBehaviour {
         return (angle >= 180) ? angle-360:angle;
     }
 
+
+    private void OnDrawGizmosSelected()
+    {
+        g = Mathf.Abs(Physics.gravity.y) * 100;
+        float angle = Mathf.Deg2Rad * ToNegativeAngles(transform.eulerAngles.z + 45);
+        float maxDistance = ((Power * Power) * Mathf.Sin(2 * angle)) / g;
+        for (int i =0;i < trajectorySteps ; i++)
+        {
+            float alpha = (float)i / (float)trajectorySteps;
+
+            float x = alpha * maxDistance;
+            float y = (x * Mathf.Tan(angle)) - ((g * Mathf.Pow(x, 2)) / (2 * Mathf.Pow(Power, 2) * Mathf.Pow(Mathf.Cos(angle),2)));
+            Gizmos.color = Color.red;
+            Vector3 tra = new Vector3(x, y, 0);
+            tra = Quaternion.Euler(0, transform.eulerAngles.y, 0) * tra;
+            Gizmos.DrawSphere(Arrow.transform.position + tra,debugRadius);
+        }
+
+
+    }
 }
