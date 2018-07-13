@@ -1067,7 +1067,7 @@ MonoBehaviour:
   speed: 30
   Power: 250
   tapGap: 0.2
-  projectile: {fileID: 1083119859883258, guid: 9000bf870928b6d4a9d70f1e3b293dc1, type: 2}
+  projectile: {fileID: 1314736110548280, guid: 27ee8bd30a710304898751c6751e0c89, type: 2}
   Arrow: {fileID: 1699859710313696}
   MaxLeanUp: 44
   MaxLeanDown: -60
