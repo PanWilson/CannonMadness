@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 54822907187794468}
   - component: {fileID: 114295601381310896}
   m_Layer: 0
-  m_Name: Ball 2
+  m_Name: Cow Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
