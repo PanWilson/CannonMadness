@@ -326,7 +326,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1568309561530592}
   m_LocalRotation: {x: -0.27059808, y: 0.27059802, z: 0.6532815, w: 0.65328145}
-  m_LocalPosition: {x: 0.1209783, y: -0.000000014901161, z: -0.1209783}
+  m_LocalPosition: {x: 0.1209783, y: -0.000000014901161, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 39.51589}
   m_Children: []
   m_Father: {fileID: 4506132801258012}
@@ -339,7 +339,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1645939016612386}
   m_LocalRotation: {x: 0.5, y: -0.49999997, z: -0.5, w: -0.5}
-  m_LocalPosition: {x: -0.2419566, y: -0.49612707, z: -0.12097834}
+  m_LocalPosition: {x: -0.2419566, y: -0.49612707, z: 0}
   m_LocalScale: {x: 13.862972, y: 68.56469, z: 10.04806}
   m_Children: []
   m_Father: {fileID: 4506132801258012}
@@ -391,7 +391,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1823518260350526}
   m_LocalRotation: {x: 0.000000015454313, y: 0.70710677, z: -0.000000015454312, w: 0.7071068}
-  m_LocalPosition: {x: 0.1209783, y: -0.000000014901161, z: -0.1209783}
+  m_LocalPosition: {x: 0.1209783, y: -0.000000014901161, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
   m_Father: {fileID: 4506132801258012}
@@ -420,7 +420,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1317111367725744}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.221, z: 0}
+  m_LocalPosition: {x: 0, y: 3.27, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4053455348968536}
@@ -546,8 +546,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1372989241737840}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.94, z: 0}
+  m_LocalRotation: {x: -0, y: 0.6686174, z: -0, w: 0.74360657}
+  m_LocalPosition: {x: 8.447367, y: 1.94, z: 10.494509}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4569224678493728}
@@ -555,7 +555,7 @@ Transform:
   - {fileID: 4149830455793526}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 83.921005, z: 0}
 --- !u!4 &4947204795049254
 Transform:
   m_ObjectHideFlags: 1
@@ -1067,7 +1067,7 @@ MonoBehaviour:
   speed: 30
   Power: 250
   tapGap: 0.2
-  projectile: {fileID: 1314736110548280, guid: 27ee8bd30a710304898751c6751e0c89, type: 2}
+  projectile: {fileID: 1795968155026034, guid: b1399aa65f6592f408022a77de8e0471, type: 2}
   Arrow: {fileID: 1699859710313696}
   MaxLeanUp: 44
   MaxLeanDown: -60

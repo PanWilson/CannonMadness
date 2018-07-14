@@ -26,8 +26,7 @@ public class AirPipe : MonoBehaviour {
     {
         if (other.CompareTag("Player"))
         {
-            if (rb == null)
-                rb = other.transform.parent.GetComponent<Rigidbody>();
+            rb = other.transform.parent.GetComponent<Rigidbody>();
             playerInside = true;
         }
     }

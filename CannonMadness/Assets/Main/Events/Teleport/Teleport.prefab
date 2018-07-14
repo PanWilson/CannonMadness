@@ -57,6 +57,7 @@ GameObject:
   - component: {fileID: 4351028902756874}
   - component: {fileID: 33454251885805254}
   - component: {fileID: 23039155479052322}
+  - component: {fileID: 64952949596769496}
   m_Layer: 0
   m_Name: Teleport Entrance
   m_TagString: Untagged
@@ -120,6 +121,7 @@ GameObject:
   - component: {fileID: 33464796575904470}
   - component: {fileID: 23125125774272580}
   - component: {fileID: 114926229169933322}
+  - component: {fileID: 64837896691030284}
   m_Layer: 0
   m_Name: Teleport Exit
   m_TagString: Untagged
@@ -133,15 +135,15 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1162440133714692}
-  m_LocalRotation: {x: -0, y: 0.72045314, z: -0, w: 0.6935036}
-  m_LocalPosition: {x: 1.4190507, y: 0, z: -3.0039454}
+  m_LocalRotation: {x: -0, y: 0.019058518, z: -0, w: 0.99981844}
+  m_LocalPosition: {x: 1.9899998, y: -1, z: -6.92}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4456400452014162}
   - {fileID: 4549101678130720}
   m_Father: {fileID: 4824294706242142}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 92.184006, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 2.184, z: 0}
 --- !u!4 &4368354831448550
 Transform:
   m_ObjectHideFlags: 1
@@ -406,6 +408,34 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 450984ef84b218c40ba755b9e426acf9, type: 3}
+--- !u!64 &64837896691030284
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1970622036068316}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 5b4c4d5c423b2534bb12a0d3926e4507, type: 3}
+--- !u!64 &64952949596769496
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1162440133714692}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 5b4c4d5c423b2534bb12a0d3926e4507, type: 3}
 --- !u!114 &114754374909088126
 MonoBehaviour:
   m_ObjectHideFlags: 1
