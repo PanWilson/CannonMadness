@@ -3,20 +3,23 @@
 public class Teleport : MonoBehaviour {
 
     public Transform teleportExit;
-    public Transform exitDirection;
+    public Transform exitTarget;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            Transform playerParent = other.transform.parent;
-            Rigidbody rb = playerParent.GetComponent<Rigidbody>();
-            playerParent.position = teleportExit.position;
-            exitDirection.localPosition = rb.velocity.normalized;
-            Vector3 oldVelocity = rb.velocity;
-            Vector3 direction = exitDirection.position - teleportExit.position;
-            Vector3 newVelocity = direction.normalized * oldVelocity.magnitude;
-            rb.velocity = newVelocity;
+            Transform player = other.transform.parent;
+            Rigidbody rb = player.GetComponent<Rigidbody>();
+
+            player.position = teleportExit.position;
+            exitTarget.localPosition = transform.InverseTransformDirection(rb.velocity);
+            player.LookAt(exitTarget);
+
+            Vector3 exitDirection = exitTarget.position - teleportExit.position;
+            Vector3 exitVelocity = exitDirection.normalized * rb.velocity.magnitude;
+
+            rb.velocity = exitVelocity;
         }
     }
 
