@@ -19,6 +19,7 @@ public class Ring : MonoBehaviour {
     public void Deactivate()
     {
         ringsEvent.ResetRings();
+        GetComponent<AudioSource>().Play();
         active = false;
         trigger.gameObject.SetActive(false);
         ringsEvent.CheckForCompletion();

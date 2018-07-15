@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class RingsEvent : MonoBehaviour {
 
+    public Transform particles; 
+
     private Ring[] rings;
 
     private bool timerActive;
@@ -63,6 +65,8 @@ public class RingsEvent : MonoBehaviour {
     {
         StopAllCoroutines();
         eventCompleted = true;
+        Instantiate(particles, rings[rings.Length-1].transform.position, particles.rotation, transform.parent);
+        GetComponent<AudioSource>().Play();
         Debug.Log("You have passed all the rings.");
     }
 

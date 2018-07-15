@@ -1,9 +1,11 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class Teleport : MonoBehaviour {
 
     public Transform teleportExit;
     public Transform exitTarget;
+    public float transferAnimTime;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -11,6 +13,8 @@ public class Teleport : MonoBehaviour {
         {
             Transform player = other.transform.parent;
             Rigidbody rb = player.GetComponent<Rigidbody>();
+
+            StartCoroutine(TransferAnim(player, transferAnimTime));
 
             player.position = teleportExit.position;
             exitTarget.localPosition = transform.InverseTransformDirection(rb.velocity);
@@ -20,6 +24,23 @@ public class Teleport : MonoBehaviour {
             Vector3 exitVelocity = exitDirection.normalized * rb.velocity.magnitude;
 
             rb.velocity = exitVelocity;
+        }
+    }
+
+    IEnumerator TransferAnim(Transform objectToAnim, float time)
+    {
+        Vector3 normalScale = objectToAnim.localScale;
+        Vector3 smallScale = Vector3.one * 0.01f;
+
+        objectToAnim.localScale = smallScale;
+
+        float t = 0;
+        while (t <= time)
+        {
+            t += Time.deltaTime;
+            float f = Mathf.Clamp01(t / time);
+            objectToAnim.localScale = Vector3.Lerp(smallScale, normalScale, f);
+            yield return null;
         }
     }
 

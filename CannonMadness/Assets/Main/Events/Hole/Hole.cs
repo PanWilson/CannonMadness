@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 
-public class Bin : MonoBehaviour {
+public class Hole : MonoBehaviour {
+
+    public Transform particles;
 
     bool completed = false;
     bool active = true;
@@ -20,7 +22,7 @@ public class Bin : MonoBehaviour {
         {
             if (active)
             {
-                Debug.Log("Bin Event successfuly completed");
+                Debug.Log("Hole Event successfuly completed");
                 OnEventCompletion();
             }
         }
@@ -30,7 +32,8 @@ public class Bin : MonoBehaviour {
     {
         active = false;
         gameObject.SetActive(false);
-
+        GetComponentInParent<AudioSource>().Play();
+        Instantiate(particles, transform.position, particles.rotation, transform.parent);
         // Other things like sound or shit like that
     }
 }
