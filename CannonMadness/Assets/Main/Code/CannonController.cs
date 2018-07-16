@@ -36,6 +36,12 @@ public class CannonController : MonoBehaviour {
 
     [SerializeField] float debugRadius;
 
+    [SerializeField]
+    public bool controlled;
+
+    [SerializeField]
+    public bool FollowProjectal;
+
     float g;
 
 
@@ -43,6 +49,8 @@ public class CannonController : MonoBehaviour {
     {
         tapCount = 0;
         tapTimer = 0;
+        controlled = true;
+        FollowProjectal = true;
     }
 
     // Use this for initialization
@@ -52,11 +60,15 @@ public class CannonController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKeyDown(KeyCode.Space)) Shoot();
-        GetTouch();
-        TapDetection();
-        if ((Input.GetKey(KeyCode.A)|| Input.GetKey(KeyCode.D)|| Input.GetKey(KeyCode.W)|| Input.GetKey(KeyCode.S))||(Input.touchCount > 0 && GetTouchByID(controllingTouchId).phase != TouchPhase.Ended)) {
-            Rotate();
+        if (controlled)
+        {
+            if (Input.GetKeyDown(KeyCode.Space)) Shoot();
+            GetTouch();
+            TapDetection();
+            if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S)) || (Input.touchCount > 0 && GetTouchByID(controllingTouchId).phase != TouchPhase.Ended))
+            {
+                Rotate();
+            }
         }
 	}
 
@@ -162,6 +174,11 @@ public class CannonController : MonoBehaviour {
     {
         GameObject P = Instantiate(projectile,Arrow.transform.position,Quaternion.LookRotation(Arrow.transform.forward,Arrow.transform.up));
         P.GetComponent<ProjectileComponent>().LaunchProjectile(P.transform.forward, Power);
+        if (FollowProjectal)
+        {
+            GameManager.Instance.MainCamera.GetComponent<CameraController>().SetTarget(P.transform.Find("CameraSlot").gameObject);
+            controlled = false;
+        }
     }
 
     float ToNegativeAngles(float angle)
