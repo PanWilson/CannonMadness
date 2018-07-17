@@ -13,18 +13,27 @@ public class Teleport : MonoBehaviour {
         {
             Transform player = other.transform.parent;
             Rigidbody rb = player.GetComponent<Rigidbody>();
-
-            StartCoroutine(TransferAnim(player, transferAnimTime));
-
-            player.position = teleportExit.position;
-            exitTarget.localPosition = transform.InverseTransformDirection(rb.velocity);
-            player.LookAt(exitTarget);
-
-            Vector3 exitDirection = exitTarget.position - teleportExit.position;
-            Vector3 exitVelocity = exitDirection.normalized * rb.velocity.magnitude;
-
-            rb.velocity = exitVelocity;
+            Transfer(player, rb);
+        } else if(other.GetComponent<Rigidbody>() != null)
+        {
+            Transform t = other.transform;
+            Rigidbody rb = t.GetComponent<Rigidbody>();
+            Transfer(t, rb);
         }
+    }
+
+    void Transfer(Transform t, Rigidbody rb)
+    {
+        StartCoroutine(TransferAnim(t, transferAnimTime));
+
+        t.position = teleportExit.position;
+        exitTarget.localPosition = transform.InverseTransformDirection(rb.velocity);
+        t.LookAt(exitTarget);
+
+        Vector3 exitDirection = exitTarget.position - teleportExit.position;
+        Vector3 exitVelocity = exitDirection.normalized * rb.velocity.magnitude;
+
+        rb.velocity = exitVelocity;
     }
 
     IEnumerator TransferAnim(Transform objectToAnim, float time)
