@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: af0ac2e493a3a6a499056abf782111e3
+guid: 71799ab4637edf5479522a2fcf475a72
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
@@ -8,8 +8,13 @@ ModelImporter:
     2100000: Pipe
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Pipe Straight
-  externalObjects: {}
+    4300000: Pipe Curve
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pipe
+    second: {fileID: 2100000, guid: 63da3073d68ae8648bc036a7c6f66647, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

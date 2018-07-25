@@ -2,41 +2,29 @@
 
 public class AirPipe : MonoBehaviour {
 
-    public Transform airTarget;
-    public float power;
-    private Vector3 direction;
-    private bool playerInside;
-    private Rigidbody rb;
+    public bool active = true;
+    [Range(1f, 100f)] public float force;
+
+    private BoxCollider boxCollider;
+    private const int forceMultiplier = 10;
+
+    Vector3 pipeDirection;
 
     public void Awake()
     {
-        direction = transform.position - airTarget.position;
-        direction = direction.normalized;
+        boxCollider = gameObject.GetComponent<BoxCollider>();
+        pipeDirection = transform.position - boxCollider.bounds.center;
     }
 
-    private void Update()
+    private void OnTriggerStay(Collider other)
     {
-        if (playerInside && rb != null)
+        if (active)
         {
-            rb.AddForce(direction * power);
-        }
+            Rigidbody rb = other.GetComponent<Rigidbody>();
+            if (rb != null)
+            {
+                rb.AddForce(pipeDirection * Time.deltaTime * forceMultiplier * force);
+            }
+        }   
     }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            rb = other.transform.parent.GetComponent<Rigidbody>();
-            playerInside = true;
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            playerInside = false;
-        }
-    }
-
 }
