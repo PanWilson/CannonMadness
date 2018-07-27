@@ -23,8 +23,9 @@ GameObject:
   - component: {fileID: 23649029203914652}
   - component: {fileID: 64332338782193548}
   - component: {fileID: 82337065741640396}
+  - component: {fileID: 114263532746707696}
   m_Layer: 0
-  m_Name: Bin Prefab
+  m_Name: Trash Bin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -127,7 +128,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 18fbdeb17fff20c40b735e535387d795, type: 3}
@@ -152,7 +153,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: b7cf46a7436583746b37cfca4e3f23a7, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 3a5a487e51d43ac438e5d74853e96a32, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.3
   m_Pitch: 1
@@ -249,4 +250,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20bedb5a74375644587c05d9111dfe1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particles: {fileID: 4829725433261076, guid: 45caa8d92bd279540947f4a8b4f53004, type: 2}
+--- !u!114 &114263532746707696
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1523666263296918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e19a8d543a1a1d4ab917515beb2939e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  completed: 0
+  celebrateParticles: {fileID: 1905371001478026, guid: 45caa8d92bd279540947f4a8b4f53004,
+    type: 2}

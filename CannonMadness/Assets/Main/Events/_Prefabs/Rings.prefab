@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 114782384510908360}
   - component: {fileID: 82066269111223770}
   m_Layer: 0
-  m_Name: Rings Event
+  m_Name: Rings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -444,5 +444,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8278cad87ed0f34bb37f0814ae299d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particles: {fileID: 4829725433261076, guid: 45caa8d92bd279540947f4a8b4f53004, type: 2}
+  completed: 0
+  celebrateParticles: {fileID: 1905371001478026, guid: 45caa8d92bd279540947f4a8b4f53004,
+    type: 2}
   resetDelay: 5

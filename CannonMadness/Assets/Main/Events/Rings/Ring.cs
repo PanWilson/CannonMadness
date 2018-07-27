@@ -4,7 +4,7 @@ public class Ring : MonoBehaviour {
 
     public bool active;
 
-    private RingsEvent ringsEvent;
+    private Rings rings;
 
     private RingTrigger trigger;
 
@@ -12,17 +12,17 @@ public class Ring : MonoBehaviour {
     {
         active = true;
 
-        ringsEvent = GetComponentInParent<RingsEvent>();
+        rings = GetComponentInParent<Rings>();
         trigger = GetComponentInChildren<RingTrigger>();
     }
 
     public void Deactivate()
     {
-        ringsEvent.ResetRings();
+        rings.ResetRings();
         GetComponent<AudioSource>().Play();
         active = false;
         trigger.gameObject.SetActive(false);
-        ringsEvent.CheckForCompletion();
+        rings.CheckForCompletion();
     }
 
     public void Activate()

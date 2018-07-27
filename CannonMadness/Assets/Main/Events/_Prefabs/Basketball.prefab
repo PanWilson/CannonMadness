@@ -76,7 +76,7 @@ GameObject:
   - component: {fileID: 4628286341634342}
   - component: {fileID: 82001208056012614}
   m_Layer: 0
-  m_Name: Basketball Prefab
+  m_Name: Basketball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -587,4 +587,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20bedb5a74375644587c05d9111dfe1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particles: {fileID: 4829725433261076, guid: 45caa8d92bd279540947f4a8b4f53004, type: 2}

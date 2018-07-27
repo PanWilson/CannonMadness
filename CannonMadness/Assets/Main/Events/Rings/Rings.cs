@@ -1,33 +1,17 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class RingsEvent : MonoBehaviour {
-
-    public Transform particles; 
+public class Rings : Event {
 
     private Ring[] rings;
 
     private bool timerActive;
     public float resetDelay;
 
-    private bool eventCompleted = false;
-
     private void Awake()
     {
         timerActive = false;
-        InitializeRings();
-    }
-
-    void InitializeRings()
-    {
         rings = GetComponentsInChildren<Ring>();
-        if (eventCompleted)
-        {
-            foreach (Ring ring in rings)
-            {
-                ring.Deactivate();
-            }
-        }
     }
 
     public void ResetRings()
@@ -49,7 +33,7 @@ public class RingsEvent : MonoBehaviour {
         timerActive = false;
     }
 
-    public void CheckForCompletion()
+    public override void CheckForCompletion()
     {
         foreach (Ring ring in rings)
         {
@@ -58,16 +42,17 @@ public class RingsEvent : MonoBehaviour {
                 return;
             }
         }
-        Success();
+        OnCompletion();
     }
 
-    public void Success()
+    public override void OnCompletion()
     {
-        StopAllCoroutines();
-        eventCompleted = true;
-        Instantiate(particles, rings[rings.Length-1].transform.position, particles.rotation, transform.parent);
-        GetComponent<AudioSource>().Play();
-        Debug.Log("You have passed all the rings.");
-    }
+        base.OnCompletion();
 
+        StopAllCoroutines();
+        Debug.Log("You have passed all the rings.");
+
+        ShootParticles(transform.position);
+        PlayAudio();
+    }
 }
