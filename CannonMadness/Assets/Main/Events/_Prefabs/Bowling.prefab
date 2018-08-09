@@ -1126,6 +1126,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   completed: 0
+  celebrateParticles: {fileID: 1905371001478026, guid: 45caa8d92bd279540947f4a8b4f53004,
+    type: 2}
 --- !u!114 &114410910335609762
 MonoBehaviour:
   m_ObjectHideFlags: 1
