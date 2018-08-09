@@ -75,6 +75,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4628286341634342}
   - component: {fileID: 82001208056012614}
+  - component: {fileID: 114032331867027036}
   m_Layer: 0
   m_Name: Basketball
   m_TagString: Untagged
@@ -576,6 +577,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &114032331867027036
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1419765196530434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e68dcad690f87e44a5f087d13103493, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  completed: 0
+  celebrateParticles: {fileID: 1905371001478026, guid: 45caa8d92bd279540947f4a8b4f53004,
+    type: 2}
 --- !u!114 &114065040336713134
 MonoBehaviour:
   m_ObjectHideFlags: 1
